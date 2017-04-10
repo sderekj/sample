@@ -67,4 +67,12 @@ public class MainActivity extends AppCompatActivity implements FlowersContract.V
     public void showError() {
         errorTextView.setVisibility(View.VISIBLE);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (presenter != null) {
+            presenter.release();
+        }
+    }
 }
